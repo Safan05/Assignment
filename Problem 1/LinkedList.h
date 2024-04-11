@@ -6,11 +6,12 @@ using namespace std;
 template <typename T>
 class LinkedList
 {
+	template<class U>
+	friend class LinkedList;
 private:
 	Node<T>* Head;	//Pointer to the head of the list
 	//You can add tail pointer too (depending on your problem)
 public:
-
 
 	LinkedList()
 	{
@@ -90,12 +91,9 @@ public:
 		}
 		cout << "NULL\n";
 	}
-	Node<char>* gethead() {
-		return Head;
-	}
 	bool ApplyRepeatedOperation(LinkedList<char> Opp, LinkedList<int> Repeat, LinkedList<int>& Res) {
 		Node<T>* H = Head;
-		Node<char>* O = Opp.gethead();
+		Node<char>* O = Opp.Head;
 		Node<T>* R = Repeat.Head;
 		while (H != NULL) {
 			while (R != NULL)
